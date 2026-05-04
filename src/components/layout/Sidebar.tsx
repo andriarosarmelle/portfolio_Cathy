@@ -1,3 +1,4 @@
+import { Mail, Phone, MapPin, Calendar, Github, Linkedin, Star } from "lucide-react";
 import type { Profile, SocialLink, SoftSkill } from "@/types";
 
 interface SidebarProps {
@@ -8,138 +9,134 @@ interface SidebarProps {
 }
 
 export function Sidebar({ profile, languages, socialLinks, softSkills }: SidebarProps) {
-  const splitName = (name: string) => {
-    const parts = name.split(" ");
-    return {
-      first: parts.slice(0, 2).join(" "),
-      rest: parts.slice(2).join(" "),
-    };
-  };
-
-  const { first: firstName, rest: lastName } = splitName(profile.name);
-
   return (
-    <aside className="lg:sticky lg:top-8 lg:h-[calc(100vh-4rem)] lg:w-[340px] lg:flex-shrink-0 lg:self-start" role="complementary" aria-label="Profil">
+    <aside className="lg:sticky lg:top-8 lg:h-[calc(100vh-4rem)] lg:w-[360px] lg:flex-shrink-0 lg:self-start" role="complementary" aria-label="Profil">
       <div className="px-5 pt-24 lg:px-0 lg:pt-8">
-        <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm lg:shadow-md">
-          {/* Photo */}
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="h-32 w-32 overflow-hidden rounded-2xl ring-4 ring-rose-100 shadow-lg">
-                <img
-                  src="/images/profile.jpg"
-                  alt={`Photo de profil de ${profile.name}, ${profile.title}`}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute -bottom-2 -right-2 flex h-7 w-7 items-center justify-center rounded-full bg-rose-400 text-white shadow" aria-hidden="true">
-                ★
+        <div className="group relative overflow-hidden rounded-3xl border border-gray-800/30 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-7 shadow-2xl transition-all duration-500 hover:shadow-cyan-500/20">
+          {/* Animated background orbs */}
+          <div className="absolute -top-32 -right-32 h-64 w-64 rounded-full bg-cyan-500/15 blur-3xl transition-all duration-700 group-hover:scale-110 group-hover:bg-cyan-500/25" />
+          <div className="absolute -bottom-32 -left-32 h-64 w-64 rounded-full bg-rose-500/15 blur-3xl transition-all duration-700 group-hover:scale-110 group-hover:bg-rose-500/25" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-48 w-48 rounded-full bg-purple-500/10 blur-3xl" />
+
+          <div className="relative z-20">
+            {/* Photo avec halo animé */}
+            <div className="flex justify-center">
+              <div className="relative">
+                {/* Rotating gradient ring */}
+                <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-cyan-400 via-rose-400 to-purple-400 opacity-80 blur-lg transition-all duration-500 group-hover:opacity-100 group-hover:blur-xl">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-rose-400 to-purple-400 animate-spin [animation-duration:3s]" />
+                </div>
+                <div className="relative h-28 w-28 overflow-hidden rounded-2xl ring-4 ring-gray-800 shadow-2xl transition-transform duration-500 group-hover:scale-105">
+                  <img
+                    src="/images/profile.jpg"
+                    alt={`Photo de ${profile.name}`}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                {/* Status indicator */}
+                <div className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-green-400 to-emerald-500 ring-2 ring-gray-900 shadow-lg">
+                  <div className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                </div>
               </div>
             </div>
-          </div>
 
-            {/* Name + Title */}
+            {/* Titre only (nom retiré – déjà dans Hero) */}
             <div className="mt-5 text-center">
-              <p className="text-xl font-bold tracking-tight text-gray-900">
-                {firstName}
-              </p>
-              {lastName && <p className="text-sm text-gray-500">{lastName}</p>}
-              <div className="mt-2 inline-block rounded-full bg-gray-900 px-3 py-1 text-xs font-semibold text-white">
+              <div className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-cyan-500/20 to-purple-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.15em] text-cyan-300 border border-cyan-500/40 shadow-lg shadow-cyan-500/20">
+                <Star size={10} fill="currentColor" />
                 {profile.title}
               </div>
-              <p className="mt-1 text-xs text-rose-500 font-medium">
-                {profile.subtitle}
-              </p>
+              <p className="mt-2 text-sm font-semibold text-rose-300 tracking-wide">{profile.subtitle}</p>
             </div>
 
-          {/* Status */}
-          <div className="mt-4 rounded-xl border border-gray-100 bg-gray-50/50 p-3 text-center">
-            <p className="text-xs font-medium text-gray-500">
-              {profile.status}
-            </p>
-            <p className="mt-0.5 text-xs text-rose-500 font-medium">
-              {profile.affiliation}
-            </p>
-          </div>
-
-          {/* Contact Info */}
-          <div className="mt-5 space-y-2.5">
-            <a
-              href={`mailto:${profile.email}`}
-              className="flex min-h-[44px] items-center gap-3 rounded-lg border border-gray-100 p-2.5 text-sm text-gray-600 transition hover:border-rose-200 hover:bg-rose-50/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:rounded"
-            >
-              <span className="text-rose-400" aria-hidden="true">✉</span>
-              <span className="truncate">{profile.email}</span>
-            </a>
-            <a
-              href={`tel:${profile.phone.replace(/\s/g, "")}`}
-              className="flex min-h-[44px] items-center gap-3 rounded-lg border border-gray-100 p-2.5 text-sm text-gray-600 transition hover:border-rose-200 hover:bg-rose-50/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:rounded"
-            >
-              <span className="text-rose-400" aria-hidden="true">📞</span>
-              {profile.phone}
-            </a>
-            <div className="flex min-h-[44px] items-center gap-3 rounded-lg border border-gray-100 p-2.5 text-sm text-gray-600">
-              <span className="text-rose-400" aria-hidden="true">📍</span>
-              {profile.location}
+            {/* Status card */}
+            <div className="mt-4 rounded-xl border border-gray-700/50 bg-gray-800/40 p-3.5 text-center backdrop-blur-md transition-all duration-300 group-hover:border-cyan-500/50 group-hover:bg-cyan-900/20">
+              <p className="text-xs font-semibold text-gray-200">{profile.status}</p>
+              <p className="mt-0.5 text-xs text-rose-300">{profile.affiliation}</p>
             </div>
-            <div className="flex min-h-[44px] items-center gap-3 rounded-lg border border-gray-100 p-2.5 text-sm text-gray-600">
-              <span className="text-rose-400" aria-hidden="true">📅</span>
-              {profile.age} ans — {profile.nationality}
+
+            {/* Contacts – grid horizontale futuriste */}
+            <div className="mt-5 grid grid-cols-2 gap-2">
+              <a href={`mailto:${profile.email}`} className="group flex min-h-[42px] items-center gap-2 rounded-lg border border-gray-700/50 bg-gray-800/40 p-2.5 text-[11px] text-gray-300 transition-all hover:border-cyan-500/60 hover:bg-cyan-900/30 hover:text-cyan-100 hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-[1.02]">
+                <Mail size={13} className="text-cyan-400 transition-all group-hover:scale-110 group-hover:rotate-6" />
+                <span className="truncate">{profile.email}</span>
+              </a>
+              <a href={`tel:${profile.phone.replace(/\s/g, "")}`} className="group flex min-h-[42px] items-center gap-2 rounded-lg border border-gray-700/50 bg-gray-800/40 p-2.5 text-[11px] text-gray-300 transition-all hover:border-rose-500/60 hover:bg-rose-900/30 hover:text-rose-100 hover:shadow-lg hover:shadow-rose-500/30 hover:scale-[1.02]">
+                <Phone size={13} className="text-rose-400 transition-all group-hover:scale-110 group-hover:rotate-6" />
+                <span>{profile.phone}</span>
+              </a>
+              <div className="group flex min-h-[42px] items-center gap-2 rounded-lg border border-gray-700/50 bg-gray-800/40 p-2.5 text-[11px] text-gray-300">
+                <MapPin size={13} className="text-purple-400 transition-all group-hover:scale-110" />
+                <span className="truncate">{profile.location}</span>
+              </div>
+              <div className="group flex min-h-[42px] items-center gap-2 rounded-lg border border-gray-700/50 bg-gray-800/40 p-2.5 text-[11px] text-gray-300">
+                <Calendar size={13} className="text-amber-400 transition-all group-hover:scale-110" />
+                <span>{profile.age} ans — {profile.nationality}</span>
+              </div>
             </div>
-          </div>
 
-          {/* Languages */}
-          <div className="mt-5">
-            <h4 className="mb-2 text-xs font-bold uppercase tracking-widest text-gray-400">
-              Langues
-            </h4>
-            <div className="space-y-1.5">
-              {languages.map((lang) => (
-                <div
-                  key={lang.name}
-                  className="flex items-center justify-between rounded-md bg-gray-50 px-3 py-2 text-sm"
-                >
-                  <span className="font-medium text-gray-700">{lang.name}</span>
-                  <span className="text-xs text-gray-500">{lang.detail || lang.level}</span>
-                </div>
-              ))}
+            {/* Langues – cards compactes */}
+            <div className="mt-5">
+              <h4 className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400/90">Langues</h4>
+              <div className="grid grid-cols-2 gap-1.5">
+                {languages.map((lang) => (
+                  <div
+                    key={lang.name}
+                    className="group flex items-center justify-between rounded-lg border border-gray-700/40 bg-gray-800/30 px-2.5 py-2 text-[11px] transition-all hover:border-cyan-500/50 hover:bg-cyan-900/20"
+                  >
+                    <span className="font-semibold text-gray-200">{lang.name}</span>
+                    <span className="text-[10px] text-cyan-300/80">{lang.detail || lang.level}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Social Links */}
-          <ul className="mt-5 flex justify-center gap-3 list-none" aria-label="Réseaux sociaux">
-            {socialLinks.map((s) => (
-              <li key={s.label}>
-                <a
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-gray-200 px-4 py-3 text-xs font-medium text-gray-600 transition hover:border-gray-900 hover:bg-gray-900 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
-                  aria-label={`Visiter ${s.label}`}
-                >
-                  <s.icon size={14} aria-hidden="true" />
-                  {s.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+            {/* Soft Skills – pills futuristes */}
+            <div className="mt-5">
+              <h4 className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-rose-400/90">Soft Skills</h4>
+              <div className="flex flex-wrap gap-1.5">
+                {softSkills.map((s) => (
+                  <div
+                    key={s.label}
+                    className="group flex items-center gap-1 rounded-full border border-rose-500/40 bg-rose-900/30 px-2.5 py-1 text-[10px] font-medium text-rose-200 transition-all hover:border-rose-400 hover:bg-rose-900/50 hover:shadow-lg hover:shadow-rose-500/30 hover:scale-105"
+                  >
+                    <s.icon size={10} className="text-rose-400 transition-transform group-hover:rotate-12" />
+                    <span>{s.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-          {/* Soft Skills Quick */}
-          <div className="mt-5">
-            <h4 className="mb-2 text-xs font-bold uppercase tracking-widest text-gray-400">
-              Soft Skills
-            </h4>
-            <div className="space-y-1.5">
-              {softSkills.map((s) => (
-                <div
-                  key={s.label}
-                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-gray-600"
-                >
-                  <s.icon size={14} className="text-rose-400" aria-hidden="true" />
-                  {s.label}
-                </div>
-              ))}
+            {/* Réseaux – boutons horizontaux */}
+            <div className="mt-5">
+              <h4 className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-purple-400/90">Réseaux</h4>
+              <div className="flex gap-2">
+                {socialLinks.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-1 flex-col items-center justify-center gap-1 rounded-lg border border-gray-700/50 bg-gray-800/40 px-3 py-2.5 text-[10px] font-semibold text-gray-300 transition-all hover:scale-105 hover:border-purple-500/60 hover:bg-purple-900/30 hover:text-purple-100 hover:shadow-lg hover:shadow-purple-500/30"
+                    aria-label={`Visiter ${s.label}`}
+                  >
+                    {s.label === "GitHub" ? (
+                      <GithubIcon size={14} className="transition-all group-hover:rotate-6" />
+                    ) : (
+                      <LinkedInIcon size={14} className="transition-all group-hover:rotate-6" />
+                    )}
+                    <span>{s.label}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom cyber line */}
+            <div className="mt-5 flex items-center gap-1 opacity-60">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+              <div className="h-1 w-1 rounded-full bg-cyan-400 animate-pulse" />
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-rose-500 to-transparent" />
             </div>
           </div>
         </div>
