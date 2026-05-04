@@ -15,15 +15,6 @@ export function AboutSection({ profile }: AboutSectionProps) {
           <p className="text-base leading-relaxed text-gray-600">
             {profile.about}
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-gray-500">
-            Je combine une solide formation en informatique avec une
-            expérience pratique sur des projets réels, du design UI/UX à
-            la mise en production. Mon approche allie rigueur technique,
-            sens du détail et compréhension des besoins utilisateurs. Je
-            suis particulièrement intéressée par les technologies web
-            modernes, l'automatisation, le design d'interfaces et les
-            solutions SaaS.
-          </p>
         </div>
         <aside className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm" aria-label="Informations rapides">
           <h3 className="text-sm font-bold uppercase tracking-wider text-gray-400">
