@@ -14,8 +14,8 @@ export const profile: Profile = {
   address: "Tambohobe sud Lot IIP29",
   nationality: "Malgache",
   age: 23,
-  about:
-    "Développeuse fullstack passionnée par la création d'applications web élégantes et performantes. Alliant rigueur technique et sensibilité UI/UX, je conçois des solutions numériques sur mesure — du backend robuste aux interfaces fluides. Actuellement en Master à l'EMIT, je suis à la recherche d'opportunités stimulantes en développement, design produit ou missions freelance.",
+   about:
+     "Actuellement en Master 1 Modelisation et Ingenierie Informatique (M2I) à l'EMIT Fianarantsoa, je suis passionnée par le développement web fullstack et le design d'interfaces. J'allie rigueur technique et sensibilité UI/UX pour créer des solutions numériques robustes et élégantes. Mes expériences sur des projets concrets — du SaaS B2B aux applications mobiles — m'ont permis de maîtriser un panel de technologies modernes (React, Next.js, NestJS, Flutter, n8n...) et d'adopter une approche centrée utilisateur. Toujours curieuse et en apprentissage, je cherche à relever de nouveaux défis techniques et à contribuer à des produits qui ont un impact réel.",
 };
 
 export const languages: Language[] = [
