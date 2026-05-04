@@ -4,10 +4,10 @@ interface HeroProps {
   name: string;
   title: string;
   subtitle: string;
-  about: string;
+  tagline: string;
 }
 
-export function Hero({ name, title, subtitle, about }: HeroProps) {
+export function Hero({ name, title, subtitle, tagline }: HeroProps) {
   return (
     <section className="mb-16 mt-8 lg:mt-0 animate-fade-in">
       <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm lg:p-12">
@@ -26,7 +26,7 @@ export function Hero({ name, title, subtitle, about }: HeroProps) {
           </span>
         </div>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-gray-600">
-          {about}
+          {tagline}
         </p>
         <nav className="mt-6 flex flex-wrap gap-3" aria-label="Navigation principale">
           <a

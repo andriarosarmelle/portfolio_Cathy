@@ -46,7 +46,7 @@ export default function App() {
             name={profile.name}
             title={profile.title}
             subtitle={profile.subtitle}
-            about={profile.about}
+            tagline={profile.tagline}
           />
 
           <AboutSection profile={profile} />

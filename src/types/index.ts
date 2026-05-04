@@ -11,6 +11,7 @@ export interface Profile {
   nationality: string;
   age: number;
   about: string;
+  tagline: string;
 }
 
 export interface Language {
