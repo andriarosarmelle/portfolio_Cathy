@@ -66,7 +66,7 @@ export const experiences: Experience[] = [
     role: "Réalisation application web sondage RPS",
     company: "Laroche 360",
     location: "Montréal, Canada (Remote)",
-    period: "Janvier 2026 — Avril 2026",
+    period: "Janvier 2026 — Mai 2026",
     description:
       "Projet SaaS B2B de gestion des risques psychosociaux. Import CSV/Excel, envoi automatisé de questionnaires, liens uniques, relances automatiques, dashboards interactifs, analyse IA des réponses ouvertes, génération PDF/Word, archivage sécurisé, déploiement sur VPS.",
     techs: ["Next.js", "NestJS", "PostgreSQL", "Strapi", "n8n"],
@@ -93,7 +93,7 @@ export const experiences: Experience[] = [
     role: "UI/UX Designer & Développeuse — Nexora",
     company: "Nexora (Atlas Local)",
     location: "Québec, Canada (Remote)",
-    period: "Janvier 2026 — Juin 2026",
+    period: "Janvier 2026 — Février 2026",
     description:
       "Conception UI/UX, maquettes Figma, prototypes fonctionnels, collaboration étroite avec l'équipe produit et les développeurs pour la création interfaces web et mobile.",
     techs: ["Figma", "React", "UI/UX Design", "Prototypage"],
@@ -106,7 +106,7 @@ export const experiences: Experience[] = [
     role: "Application Gestion des Étudiants Parrainés",
     company: "EMIT Fianarantsoa",
     location: "Fianarantsoa, Madagascar",
-    period: "Depuis Mai 2025",
+    period: "Depuis Juillet 2025",
     description:
       "Projet de mémoire de licence. Digitalisation du processus de parrainage : réduction des délais de 70%, traçabilité pour plus de 200 parrainages annuels. Conception UML, développement mobile et cloud.",
     techs: ["Flutter", "Firebase", "UML"],
@@ -120,7 +120,7 @@ export const experiences: Experience[] = [
     role: "Création Site Web Radio Feon'ny Filazantsara",
     company: "Foibe Loterana momba ny Fifandraisana",
     location: "Antsirabe, Madagascar",
-    period: "Juillet 2024 — Août 2024",
+    period: "Juin 2024 — Août 2024",
     description:
       "Conception et développement du site web de la radio chrétienne Feon'ny Filazantsara. Interface utilisateur intuitive, gestion de contenu, diffusion des programmes.",
     techs: ["HTML", "CSS", "JavaScript", "Laravel 10"],
