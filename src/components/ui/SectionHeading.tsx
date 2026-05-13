@@ -12,14 +12,14 @@ export function SectionHeading({ icon: Icon, title, subtitle }: SectionHeadingPr
   return (
     <div
       ref={ref}
-      className={cn("scroll-reveal mb-10", revealed ? "revealed" : "")}
+      className={cn("scroll-reveal mb-7 sm:mb-10", revealed ? "revealed" : "")}
       data-reduce-motion="true"
     >
-      <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-rose-200 bg-rose-50/60 px-3 py-1 text-xs font-medium uppercase tracking-widest text-rose-500">
-        <Icon size={13} aria-hidden="true" />
+      <div className="mb-2 inline-flex max-w-full items-center gap-2 rounded-full border border-rose-200 bg-rose-50/60 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-rose-500 sm:text-xs sm:tracking-widest">
+        <Icon size={13} className="shrink-0" aria-hidden="true" />
         <span>{subtitle || title}</span>
       </div>
-      <h2 className="text-3xl font-bold tracking-tight text-gray-900 lg:text-4xl">
+      <h2 className="break-words text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl">
         {title}
       </h2>
       <div className="mt-3 h-0.5 w-12 rounded-full bg-rose-300" aria-hidden="true" />

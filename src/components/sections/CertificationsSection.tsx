@@ -9,13 +9,13 @@ interface CertificationsSectionProps {
 
 export function CertificationsSection({ certifications }: CertificationsSectionProps) {
   return (
-    <section id="certifications" className="mb-16 scroll-mt-24">
+    <section id="certifications" className="mb-12 scroll-mt-24 sm:mb-16">
       <SectionHeading
         icon={Award}
         title="Certifications et formations"
         subtitle="Reconnaissances"
       />
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div className="grid gap-3 md:grid-cols-2">
         {certifications.map((cert, i) => (
           <CertificationCard key={i} certification={cert} />
         ))}

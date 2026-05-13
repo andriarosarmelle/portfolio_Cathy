@@ -9,7 +9,7 @@ interface EducationSectionProps {
 
 export function EducationSection({ education }: EducationSectionProps) {
   return (
-    <section id="education" className="mb-16 scroll-mt-24">
+    <section id="education" className="mb-12 scroll-mt-24 sm:mb-16">
       <SectionHeading
         icon={GraduationCap}
         title="Diplômes et formations"

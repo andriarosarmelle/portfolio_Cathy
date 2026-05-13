@@ -24,7 +24,7 @@ const skillGroups = [
 
 export function SkillsSection({ technicalSkills }: SkillsSectionProps) {
   return (
-    <section id="skills" className="mb-16 scroll-mt-24">
+    <section id="skills" className="mb-12 scroll-mt-24 sm:mb-16">
       <SectionHeading
         icon={Layers}
         title="Compétences techniques"
@@ -34,11 +34,11 @@ export function SkillsSection({ technicalSkills }: SkillsSectionProps) {
         {skillGroups.map((group) => (
           <div
             key={group.key}
-            className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm sm:p-6"
           >
-            <div className="mb-3 flex items-center gap-2">
-              <group.icon size={16} className="text-rose-400" aria-hidden="true" />
-              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500">
+            <div className="mb-3 flex items-start gap-2">
+              <group.icon size={16} className="mt-0.5 shrink-0 text-rose-400" aria-hidden="true" />
+              <h3 className="break-words text-sm font-bold uppercase tracking-wider text-gray-500">
                 {group.title}
               </h3>
             </div>
@@ -50,9 +50,9 @@ export function SkillsSection({ technicalSkills }: SkillsSectionProps) {
           </div>
         ))}
         {/* UI/UX full width */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm lg:col-span-2">
-          <div className="mb-3 flex items-center gap-2">
-            <Palette size={16} className="text-rose-400" aria-hidden="true" />
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm sm:p-6 lg:col-span-2">
+          <div className="mb-3 flex items-start gap-2">
+            <Palette size={16} className="mt-0.5 shrink-0 text-rose-400" aria-hidden="true" />
             <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500">
               UI/UX Design
             </h3>

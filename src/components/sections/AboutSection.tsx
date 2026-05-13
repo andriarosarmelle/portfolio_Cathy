@@ -8,15 +8,15 @@ interface AboutSectionProps {
 
 export function AboutSection({ profile }: AboutSectionProps) {
   return (
-    <section id="about" className="mb-16 scroll-mt-24">
+    <section id="about" className="mb-12 scroll-mt-24 sm:mb-16">
       <SectionHeading icon={Heart} title="À propos" subtitle="Qui suis-je" />
       <div className="grid gap-6 lg:grid-cols-3">
-        <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm lg:col-span-2">
-          <p className="text-base leading-relaxed text-gray-600">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm sm:p-6 lg:col-span-2">
+          <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
             {profile.about}
           </p>
         </div>
-        <aside className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm" aria-label="Informations rapides">
+        <aside className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm sm:p-6" aria-label="Informations rapides">
           <h3 className="text-sm font-bold uppercase tracking-wider text-gray-400">
             En bref
           </h3>
@@ -30,10 +30,10 @@ export function AboutSection({ profile }: AboutSectionProps) {
             ].map((item) => (
               <li
                 key={item.text}
-                className="flex items-center gap-2.5 text-sm text-gray-600"
+                className="flex items-start gap-2.5 text-sm text-gray-600"
               >
-                <item.icon size={15} className="text-rose-400" aria-hidden="true" />
-                {item.text}
+                <item.icon size={15} className="mt-0.5 shrink-0 text-rose-400" aria-hidden="true" />
+                <span>{item.text}</span>
               </li>
             ))}
           </ul>

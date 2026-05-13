@@ -9,7 +9,7 @@ interface ProjectsSectionProps {
 
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
-    <section id="projects" className="mb-16 scroll-mt-24">
+    <section id="projects" className="mb-12 scroll-mt-24 sm:mb-16">
       <SectionHeading
         icon={Code2}
         title="Projets"

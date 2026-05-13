@@ -9,13 +9,13 @@ interface ExperienceSectionProps {
 
 export function ExperienceSection({ experiences }: ExperienceSectionProps) {
   return (
-    <section id="experience" className="mb-16 scroll-mt-24">
+    <section id="experience" className="mb-12 scroll-mt-24 sm:mb-16">
       <SectionHeading
         icon={Briefcase}
         title="Expériences professionnelles"
         subtitle="Parcours"
       />
-      <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm lg:p-8">
+      <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm sm:p-6 lg:p-8">
         {experiences.map((exp, i) => (
           <TimelineItem key={i} experience={exp} />
         ))}

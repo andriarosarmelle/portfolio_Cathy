@@ -15,7 +15,7 @@ export function EducationItem({ education }: EducationItemProps) {
     <div
       ref={ref}
       className={cn(
-        "group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-rose-200 hover:-translate-y-1",
+        "group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all duration-300 hover:border-rose-200 hover:shadow-lg sm:p-6 sm:hover:-translate-y-1",
         revealed ? "revealed" : ""
       )}
       data-reduce-motion="true"
@@ -26,34 +26,34 @@ export function EducationItem({ education }: EducationItemProps) {
 
       <div className="relative z-10">
         {/* Header: Icon + Period badge */}
-        <div className="mb-5 flex items-start justify-between">
-          <div className="flex items-center gap-4">
+        <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div className="flex min-w-0 items-start gap-3 sm:gap-4">
             {/* Icon container with glow effect */}
             <div className="relative">
               <div className="absolute inset-0 rounded-xl bg-rose-400 opacity-20 blur-md transition-all duration-300 group-hover:opacity-40" />
-              <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-rose-100 to-rose-200 text-rose-600 shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-md">
-                <GraduationCap size={24} strokeWidth={1.5} aria-hidden="true" />
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-rose-100 to-rose-200 text-rose-600 shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-md sm:h-12 sm:w-12">
+                <GraduationCap size={22} strokeWidth={1.5} aria-hidden="true" />
               </div>
             </div>
 
             {/* Degree & School */}
-            <div>
-              <h3 className="text-lg leading-tight font-bold text-gray-900 transition-colors duration-300 group-hover:text-rose-700">
+            <div className="min-w-0">
+              <h3 className="break-words text-base font-bold leading-tight text-gray-900 transition-colors duration-300 group-hover:text-rose-700 sm:text-lg">
                 {degree}
               </h3>
-              <div className="mt-1 flex items-center gap-1.5 text-sm font-medium text-rose-600">
-                <Building2 size={14} aria-hidden="true" />
+              <div className="mt-1 flex items-start gap-1.5 text-sm font-medium text-rose-600">
+                <Building2 size={14} className="mt-0.5 shrink-0" aria-hidden="true" />
                 <span>{school}</span>
               </div>
-              <div className="mt-0.5 flex items-center gap-1.5 text-xs text-gray-400">
-                <MapPin size={12} aria-hidden="true" />
+              <div className="mt-0.5 flex items-start gap-1.5 text-xs text-gray-400">
+                <MapPin size={12} className="mt-0.5 shrink-0" aria-hidden="true" />
                 <span>{place}</span>
               </div>
             </div>
           </div>
 
           {/* Period badge */}
-          <div className="flex flex-col items-end gap-1">
+          <div className="flex flex-col items-start gap-1 sm:items-end">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-gray-50 to-gray-100 px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm transition-all duration-300 group-hover:from-rose-50 group-hover:to-rose-100 group-hover:text-rose-700 group-hover:shadow">
               <Clock size={11} aria-hidden="true" />
               <time>{period}</time>

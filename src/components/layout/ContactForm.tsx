@@ -1,5 +1,5 @@
 import type { FormEvent } from "react";
-import { Send, Download, Printer } from "lucide-react";
+import { Send, Download, Printer, Mail, Phone, MapPin } from "lucide-react";
 import type { SocialLink } from "@/types";
 
 interface ContactFormProps {
@@ -32,8 +32,8 @@ export function ContactForm({ email, phone, address, socialLinks, cvUrl }: Conta
 
   return (
     <section id="contact" className="no-print scroll-mt-24">
-      <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm lg:p-10">
-        <div className="grid gap-8 lg:grid-cols-5">
+      <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm sm:rounded-3xl sm:p-8 lg:p-10">
+        <div className="grid gap-6 lg:grid-cols-5 lg:gap-8">
           <div className="space-y-4 lg:col-span-3">
             <p className="text-sm leading-relaxed text-gray-600">
               Vous avez un projet, une opportunité de stage, une mission
@@ -97,7 +97,7 @@ export function ContactForm({ email, phone, address, socialLinks, cvUrl }: Conta
               </div>
             <button
               type="submit"
-              className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-gray-800 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
+              className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-center text-sm font-medium text-white transition hover:bg-gray-800 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2 sm:w-auto"
             >
               Envoyer le message
               <Send size={14} aria-hidden="true" />
@@ -112,21 +112,21 @@ export function ContactForm({ email, phone, address, socialLinks, cvUrl }: Conta
                <address className="mt-3 space-y-3 not-italic">
                  <a
                    href={`mailto:${email}`}
-                   className="flex min-h-[44px] items-center gap-3 rounded-lg border border-gray-100 p-2.5 text-sm text-gray-600 transition hover:border-rose-200 hover:bg-rose-50/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:rounded"
+                   className="flex min-h-[44px] min-w-0 items-center gap-3 rounded-lg border border-gray-100 p-2.5 text-sm text-gray-600 transition hover:border-rose-200 hover:bg-rose-50/50 focus-visible:rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
                  >
-                   <span className="text-rose-400" aria-hidden="true">✉</span>
-                   {email}
+                   <Mail size={16} className="shrink-0 text-rose-400" aria-hidden="true" />
+                   <span className="min-w-0 break-all">{email}</span>
                  </a>
                  <a
                    href={`tel:${phone.replace(/\s/g, "")}`}
-                   className="flex min-h-[44px] items-center gap-3 rounded-lg border border-gray-100 p-2.5 text-sm text-gray-600 transition hover:border-rose-200 hover:bg-rose-50/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:rounded"
+                   className="flex min-h-[44px] min-w-0 items-center gap-3 rounded-lg border border-gray-100 p-2.5 text-sm text-gray-600 transition hover:border-rose-200 hover:bg-rose-50/50 focus-visible:rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
                  >
-                   <span className="text-rose-400" aria-hidden="true">📞</span>
-                   {phone}
+                   <Phone size={16} className="shrink-0 text-rose-400" aria-hidden="true" />
+                   <span>{phone}</span>
                  </a>
-                 <div className="flex min-h-[44px] items-center gap-3 rounded-lg border border-gray-100 p-2.5 text-sm text-gray-600">
-                   <span className="text-rose-400" aria-hidden="true">📍</span>
-                   {address}
+                 <div className="flex min-h-[44px] min-w-0 items-center gap-3 rounded-lg border border-gray-100 p-2.5 text-sm text-gray-600">
+                   <MapPin size={16} className="shrink-0 text-rose-400" aria-hidden="true" />
+                   <span>{address}</span>
                  </div>
                </address>
              </div>
@@ -135,14 +135,14 @@ export function ContactForm({ email, phone, address, socialLinks, cvUrl }: Conta
                 Réseaux
               </h4>
                     <nav className="mt-3" aria-label="Réseaux sociaux">
-                      <ul className="flex flex-wrap gap-2 list-none m-0 p-0">
+                      <ul className="m-0 flex list-none flex-col gap-2 p-0 sm:flex-row sm:flex-wrap lg:flex-col xl:flex-row">
                         {socialLinks.map((s) => (
-                          <li key={s.label}>
+                          <li key={s.label} className="min-w-0 flex-1">
                             <a
                               href={s.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-xs font-medium text-gray-600 transition hover:border-gray-900 hover:bg-gray-900 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
+                              className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-xs font-medium text-gray-600 transition hover:border-gray-900 hover:bg-gray-900 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
                             >
                               <s.icon size={14} aria-hidden="true" />
                               {s.label}

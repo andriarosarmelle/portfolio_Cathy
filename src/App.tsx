@@ -31,7 +31,7 @@ export default function App() {
       <MobileNav />
 
       {/* Main layout */}
-      <div className="mx-auto flex max-w-7xl flex-col lg:flex-row lg:gap-10 lg:px-8 xl:px-12">
+      <div className="mx-auto flex w-full max-w-7xl flex-col lg:flex-row lg:gap-10 lg:px-8 xl:px-12">
         {/* Sidebar (aside) */}
         <Sidebar
           profile={profile}
@@ -41,7 +41,7 @@ export default function App() {
         />
 
         {/* Main content */}
-        <main id="main-content" className="order-1 flex-1 px-5 pb-16 pt-24 lg:order-2 lg:px-0 lg:pb-24 lg:pt-8">
+        <main id="main-content" className="order-1 min-w-0 flex-1 px-4 pb-16 pt-24 sm:px-6 lg:order-2 lg:px-0 lg:pb-24 lg:pt-8">
           <Hero
             name={profile.name}
             title={profile.title}

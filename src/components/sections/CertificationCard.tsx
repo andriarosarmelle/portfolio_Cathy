@@ -21,9 +21,9 @@ export function CertificationCard({ certification }: CertificationCardProps) {
       )}
       data-reduce-motion="true"
     >
-      <h4 className="text-sm font-bold text-gray-900">{title}</h4>
+      <h4 className="break-words text-sm font-bold text-gray-900">{title}</h4>
       <p className="mt-0.5 text-xs text-gray-500">{org}</p>
-      <div className="mt-2 flex items-center gap-2">
+      <div className="mt-2 flex flex-wrap items-center gap-2">
         <span className="inline-flex items-center gap-1 rounded-full bg-gray-50 px-2 py-0.5 text-xs text-gray-500">
           <Clock size={10} aria-hidden="true" />
           <time>{date}</time>
