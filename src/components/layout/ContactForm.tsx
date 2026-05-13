@@ -1,5 +1,5 @@
 import type { FormEvent } from "react";
-import { Send, Download } from "lucide-react";
+import { Send, Download, Printer } from "lucide-react";
 import type { SocialLink } from "@/types";
 
 interface ContactFormProps {
@@ -7,17 +7,31 @@ interface ContactFormProps {
   phone: string;
   address: string;
   socialLinks: SocialLink[];
+  cvUrl?: string;
 }
 
-export function ContactForm({ email, phone, address, socialLinks }: ContactFormProps) {
-  const handleSubmit = (e: FormEvent) => {
+export function ContactForm({ email, phone, address, socialLinks, cvUrl }: ContactFormProps) {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Form submission logic can be added here
-    alert("Message envoyé ! (Démonstration)");
+    const form = new FormData(e.currentTarget);
+    const name = String(form.get("name") || "").trim();
+    const senderEmail = String(form.get("email") || "").trim();
+    const subject = String(form.get("subject") || "Contact depuis le portfolio").trim();
+    const message = String(form.get("message") || "").trim();
+    const body = [
+      `Nom: ${name}`,
+      `Email: ${senderEmail}`,
+      "",
+      message,
+    ].join("\n");
+
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
+  const handlePrintCv = () => window.print();
+
   return (
-    <section id="contact" className="scroll-mt-24">
+    <section id="contact" className="no-print scroll-mt-24">
       <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm lg:p-10">
         <div className="grid gap-8 lg:grid-cols-5">
           <div className="space-y-4 lg:col-span-3">
@@ -139,13 +153,25 @@ export function ContactForm({ email, phone, address, socialLinks }: ContactFormP
                       </ul>
                     </nav>
             </div>
-                  <a
-                    href={`mailto:${email}`}
-                    className="flex w-full min-h-[44px] items-center justify-center gap-2 rounded-full bg-rose-400 py-3 text-sm font-semibold text-white transition hover:bg-rose-500 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
-                  >
-                    <Download size={15} aria-hidden="true" />
-                    Demander mon CV
-                  </a>
+                  {cvUrl ? (
+                    <a
+                      href={cvUrl}
+                      download
+                      className="flex w-full min-h-[44px] items-center justify-center gap-2 rounded-full bg-rose-400 py-3 text-sm font-semibold text-white transition hover:bg-rose-500 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
+                    >
+                      <Download size={15} aria-hidden="true" />
+                      Télécharger mon CV
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={handlePrintCv}
+                      className="flex w-full min-h-[44px] items-center justify-center gap-2 rounded-full bg-rose-400 py-3 text-sm font-semibold text-white transition hover:bg-rose-500 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
+                    >
+                      <Printer size={15} aria-hidden="true" />
+                      Sauvegarder en PDF
+                    </button>
+                  )}
           </aside>
         </div>
       </div>

@@ -12,6 +12,7 @@ export interface Profile {
   age: number;
   about: string;
   tagline: string;
+  cvUrl?: string;
 }
 
 export interface Language {

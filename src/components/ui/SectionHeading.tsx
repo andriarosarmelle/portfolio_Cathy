@@ -1,6 +1,5 @@
 import { cn } from "@/utils/cn";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import type { ReactElement } from "react";
 
 interface SectionHeadingProps {
   icon: React.ElementType;

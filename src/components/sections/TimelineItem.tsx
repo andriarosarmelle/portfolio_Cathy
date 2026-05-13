@@ -34,7 +34,7 @@ export function TimelineItem({ experience }: TimelineItemProps) {
         </div>
         <div className="inline-flex items-center gap-1.5 rounded-md bg-rose-50 px-2.5 py-0.5 text-xs font-medium text-rose-600">
           <Clock size={11} aria-hidden="true" />
-          <time dateTime={period}>{period}</time>
+          <time>{period}</time>
         </div>
       </div>
       <p className="mt-3 text-sm leading-relaxed text-gray-600">

@@ -11,13 +11,21 @@ interface SidebarProps {
 
 export function Sidebar({ profile, languages, socialLinks, softSkills }: SidebarProps) {
   return (
-    <aside className="lg:sticky lg:top-8 lg:h-[calc(100vh-4rem)] lg:w-[340px] lg:flex-shrink-0 lg:self-start" role="complementary" aria-label="Profil">
-      <div className="px-5 pt-24 lg:px-0 lg:pt-8">
+    <aside className="order-2 lg:order-1 lg:sticky lg:top-8 lg:h-[calc(100vh-4rem)] lg:w-[340px] lg:flex-shrink-0 lg:self-start lg:overflow-y-auto" role="complementary" aria-label="Profil">
+      <div className="px-5 pb-12 lg:px-0 lg:pb-0 lg:pt-8">
         <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
           {/* Photo */}
           <div className="flex justify-center">
             <div className="h-24 w-24 overflow-hidden rounded-xl ring-4 ring-rose-100">
-              <img src="/images/profile.jpg" alt={`${profile.name}`} className="h-full w-full object-cover" />
+              <img
+                src="/images/profile-thumb.jpg"
+                alt={profile.name}
+                width={96}
+                height={96}
+                loading="eager"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
 
@@ -30,6 +38,7 @@ export function Sidebar({ profile, languages, socialLinks, softSkills }: Sidebar
           {/* Status */}
           <div className="mt-3 rounded-lg bg-gray-50 p-2.5 text-center">
             <p className="text-xs text-gray-600">{profile.status}</p>
+            <p className="mt-1 text-[11px] leading-snug text-gray-500">{profile.affiliation}</p>
           </div>
 
           {/* Contacts grid 2×2 */}

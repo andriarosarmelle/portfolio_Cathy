@@ -31,7 +31,7 @@ export default function App() {
       <MobileNav />
 
       {/* Main layout */}
-      <div className="mx-auto max-w-7xl lg:flex lg:gap-10 lg:px-8 xl:px-12">
+      <div className="mx-auto flex max-w-7xl flex-col lg:flex-row lg:gap-10 lg:px-8 xl:px-12">
         {/* Sidebar (aside) */}
         <Sidebar
           profile={profile}
@@ -41,12 +41,13 @@ export default function App() {
         />
 
         {/* Main content */}
-        <main id="main-content" className="flex-1 px-5 pb-24 pt-8 lg:px-0 lg:pt-8">
+        <main id="main-content" className="order-1 flex-1 px-5 pb-16 pt-24 lg:order-2 lg:px-0 lg:pb-24 lg:pt-8">
           <Hero
             name={profile.name}
             title={profile.title}
             subtitle={profile.subtitle}
             tagline={profile.tagline}
+            cvUrl={profile.cvUrl}
           />
 
           <AboutSection profile={profile} />
@@ -66,10 +67,11 @@ export default function App() {
             phone={profile.phone}
             address={profile.address}
             socialLinks={socialLinks}
+            cvUrl={profile.cvUrl}
           />
 
           {/* Footer */}
-          <footer className="mt-20 border-t border-gray-100 pt-8 text-center" role="contentinfo" aria-label="Pied de page">
+          <footer className="no-print mt-20 border-t border-gray-100 pt-8 text-center" role="contentinfo" aria-label="Pied de page">
             <p className="text-xs text-gray-400">
               © {new Date().getFullYear()} {profile.name} — Tous droits réservés.
             </p>

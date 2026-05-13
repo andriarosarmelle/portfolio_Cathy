@@ -56,7 +56,7 @@ export function EducationItem({ education }: EducationItemProps) {
           <div className="flex flex-col items-end gap-1">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-gray-50 to-gray-100 px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm transition-all duration-300 group-hover:from-rose-50 group-hover:to-rose-100 group-hover:text-rose-700 group-hover:shadow">
               <Clock size={11} aria-hidden="true" />
-              <time dateTime={period}>{period}</time>
+              <time>{period}</time>
             </span>
           </div>
         </div>

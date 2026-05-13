@@ -26,7 +26,7 @@ export function AboutSection({ profile }: AboutSectionProps) {
               { icon: MapPin, text: "Fianarantsoa, Madagascar" },
               { icon: Globe, text: "Français & Anglais" },
               { icon: Award, text: "7 certifications" },
-              { icon: Layers, text: "5 projets majeurs" },
+              { icon: Layers, text: "6 projets majeurs" },
             ].map((item) => (
               <li
                 key={item.text}

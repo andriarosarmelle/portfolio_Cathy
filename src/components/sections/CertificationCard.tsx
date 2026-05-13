@@ -26,7 +26,7 @@ export function CertificationCard({ certification }: CertificationCardProps) {
       <div className="mt-2 flex items-center gap-2">
         <span className="inline-flex items-center gap-1 rounded-full bg-gray-50 px-2 py-0.5 text-xs text-gray-500">
           <Clock size={10} aria-hidden="true" />
-          <time dateTime={date}>{date}</time>
+          <time>{date}</time>
         </span>
         {status && (
           <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-600">

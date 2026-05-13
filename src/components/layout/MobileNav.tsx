@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 
 const navSections = [
-  "about",
-  "education",
-  "experience",
-  "projects",
-  "skills",
-  "certifications",
-  "contact",
+  { id: "about", label: "À propos" },
+  { id: "education", label: "Diplômes" },
+  { id: "experience", label: "Expériences" },
+  { id: "projects", label: "Projets" },
+  { id: "skills", label: "Compétences" },
+  { id: "certifications", label: "Certifications" },
+  { id: "contact", label: "Contact" },
 ];
 
 export function MobileNav() {
@@ -24,6 +24,7 @@ export function MobileNav() {
   return (
     <nav
       className={`
+        no-print
         fixed top-0 z-50 w-full border-b border-gray-200/60 bg-white/80 backdrop-blur-lg
         transition-shadow lg:hidden
         ${scrolled ? "shadow-sm" : ""}
@@ -52,17 +53,15 @@ export function MobileNav() {
         <div
           id="mobile-menu"
           className="border-t border-gray-100 bg-white px-5 py-3 space-y-1 animate-fade-in"
-          role="menu"
         >
           {navSections.map((s) => (
             <a
-              key={s}
-              href={`#${s}`}
+              key={s.id}
+              href={`#${s.id}`}
               onClick={() => setOpen(false)}
-              className="block rounded-md px-3 py-2.5 text-sm font-medium capitalize text-gray-600 hover:bg-rose-50 hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
-              role="menuitem"
+              className="block rounded-md px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-rose-50 hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
             >
-              {s}
+              {s.label}
             </a>
           ))}
         </div>

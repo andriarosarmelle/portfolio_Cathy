@@ -1,5 +1,4 @@
 import { Palette, Code2, Cpu, Layers } from "lucide-react";
-import type { ReactElement } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TechBadge } from "@/components/ui/TechBadge";
 import type { TechnicalSkills } from "@/types";

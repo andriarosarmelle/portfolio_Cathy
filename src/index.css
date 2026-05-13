@@ -122,3 +122,64 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-rose-300;
 }
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background: white !important;
+    color: #111827 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  #main-content {
+    padding: 0 !important;
+  }
+
+  section,
+  article {
+    break-inside: avoid;
+  }
+
+  aside[aria-label="Profil"] {
+    position: static !important;
+    height: auto !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  aside[aria-label="Profil"] > div {
+    padding: 0 0 18px 0 !important;
+  }
+
+  .rounded-3xl,
+  .rounded-2xl,
+  .rounded-xl {
+    border-radius: 10px !important;
+  }
+
+  .shadow-sm,
+  .shadow-md,
+  .shadow-lg {
+    box-shadow: none !important;
+  }
+}
