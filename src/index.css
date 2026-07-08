@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', 'SF Pro Display', system-ui, -apple-system, sans-serif;
+  --color-cream: #fafafa;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-950 antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  ::selection {
+    @apply bg-cyan-200 text-slate-950;
+  }
+}
+
+@layer utilities {
+  .cv-shell {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .cv-section {
+    @apply py-7 sm:py-8;
+  }
+
+  .section-kicker {
+    @apply mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-200;
+  }
+
+  .section-title {
+    @apply mb-5 text-2xl font-semibold tracking-normal text-slate-950 dark:text-white;
+  }
+
+  .premium-card {
+    @apply rounded-lg border border-slate-200 bg-white shadow-sm shadow-slate-200/50 transition-colors dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none;
+  }
+
+  .contact-chip {
+    @apply inline-flex min-h-11 items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-cyan-300 hover:text-cyan-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:border-cyan-300/50 dark:hover:text-cyan-100;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.7s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .timeline-dot {
+    @apply relative;
+  }
+
+  .timeline-dot::before {
+    content: '';
+    @apply absolute left-0 top-2 z-10 h-2.5 w-2.5 rounded-full border-2 border-cyan-300 bg-white;
+    transform: translateX(-50%);
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .animate-fade-in,
+    .animate-slide-up,
+    .animate-slide-right,
+    .animate-scale-in {
+      animation: none;
+      opacity: 1;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-cyan-200;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-cyan-300;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background: white !important;
+    color: #0f172a !important;
+    font-size: 10.5pt;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .cv-shell {
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .cv-section {
+    padding-bottom: 12px !important;
+    padding-top: 12px !important;
+  }
+
+  .section-title {
+    font-size: 15pt !important;
+    margin-bottom: 10px !important;
+  }
+
+  .premium-card,
+  .contact-chip {
+    background: white !important;
+    border-color: #e2e8f0 !important;
+    box-shadow: none !important;
+  }
+
+  .cv-shell,
+  .premium-card,
+  .contact-chip {
+    color: #0f172a !important;
+  }
+
+  .dark,
+  .dark * {
+    color-scheme: light !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  section,
+  article {
+    break-inside: avoid;
+  }
+
+  .rounded-\[2rem\],
+  .rounded-3xl,
+  .rounded-2xl,
+  .rounded-xl,
+  .rounded-lg {
+    border-radius: 8px !important;
+  }
+
+  .shadow-sm,
+  .shadow-md,
+  .shadow-lg,
+  .shadow-2xl {
+    box-shadow: none !important;
+  }
+}
