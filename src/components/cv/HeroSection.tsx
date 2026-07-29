@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { ArrowDown, Mail, MapPin, Phone } from "lucide-react";
 import { PrintButton } from "@/components/cv/PrintButton";
 import type { CVProfile } from "@/types/cv";
 
@@ -8,12 +8,16 @@ interface HeroSectionProps {
 
 export function HeroSection({ profile }: HeroSectionProps) {
   return (
-    <section className="cv-section grid gap-8 pt-6 lg:grid-cols-[1fr_220px]" aria-labelledby="hero-title">
+    <section className="cv-section relative grid min-h-[620px] items-center gap-12 overflow-hidden pt-8 lg:grid-cols-[1fr_320px]" aria-labelledby="hero-title">
+      <div className="hero-orb pointer-events-none absolute -right-28 top-8 h-80 w-80 rounded-full blur-3xl" />
       <div className="space-y-6">
+        <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-800 dark:border-emerald-400/20 dark:bg-emerald-400/10 dark:text-emerald-200">
+          <span className="h-2 w-2 rounded-full bg-emerald-500" /> Disponible pour de nouvelles opportunités
+        </div>
         <div className="space-y-4">
-          <h1 id="hero-title" className="max-w-4xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl dark:text-white">{profile.name}</h1>
-          <p className="max-w-3xl text-xl font-medium leading-8 text-slate-700 dark:text-slate-200">{profile.title}</p>
-          <p className="max-w-3xl text-base leading-8 text-slate-600 dark:text-slate-300">{profile.headline}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">{profile.title}</p>
+          <h1 id="hero-title" className="max-w-4xl text-5xl font-bold leading-[1.02] tracking-[-0.05em] text-slate-950 sm:text-7xl dark:text-white">Des solutions numériques <span className="text-gradient">utiles et humaines.</span></h1>
+          <p className="max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">{profile.headline}</p>
         </div>
         <div className="grid gap-3 text-sm text-slate-600 sm:grid-cols-2 dark:text-slate-300">
           <a className="contact-chip" href={`mailto:${profile.email}`}><Mail className="h-4 w-4" aria-hidden="true" />{profile.email}</a>
@@ -26,10 +30,15 @@ export function HeroSection({ profile }: HeroSectionProps) {
           ))}
         </div>
         <PrintButton cvUrl={profile.cvUrl} />
+        <a href="#projects" className="no-print inline-flex items-center gap-2 text-sm font-semibold text-cyan-700 dark:text-cyan-300">Découvrir mes réalisations <ArrowDown className="h-4 w-4" /></a>
       </div>
       <div className="flex items-start justify-center lg:justify-end">
-        <div className="relative h-52 w-52 overflow-hidden rounded-lg border border-white bg-slate-100 shadow-xl shadow-cyan-900/10 dark:border-white/10 dark:bg-slate-800">
+        <div className="relative z-10 h-80 w-72 overflow-hidden rounded-[2rem] border-4 border-white bg-slate-100 shadow-2xl shadow-cyan-900/20 dark:border-white/10 dark:bg-slate-800">
           <img src={profile.photo} alt={profile.name} className="h-full w-full object-cover" />
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-5 pt-16 text-white">
+            <p className="font-semibold">{profile.name}</p>
+            <p className="mt-1 text-xs text-white/70">Fianarantsoa · Madagascar</p>
+          </div>
         </div>
       </div>
     </section>

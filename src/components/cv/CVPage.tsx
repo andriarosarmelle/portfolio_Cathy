@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { HeartPulse, MonitorSmartphone, Moon, Sun } from "lucide-react";
+import { ArrowUpRight, HeartPulse, MonitorSmartphone, Moon, Sun } from "lucide-react";
 import { ContactSection } from "@/components/cv/ContactSection";
 import { ExperienceCard } from "@/components/cv/ExperienceCard";
 import { HeroSection } from "@/components/cv/HeroSection";
@@ -27,7 +27,11 @@ export function CVPage() {
     <div className={cn(mode === "dark" && "dark")}>
       <div className="min-h-screen bg-[#f8fafc] text-slate-950 transition-colors dark:bg-slate-950 dark:text-white">
         <div className="no-print sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/85">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-end gap-3 px-4 py-3 sm:px-6">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
+            <a href="#top" className="flex items-center gap-3 font-semibold tracking-tight">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-slate-950 text-xs font-bold text-white dark:bg-white dark:text-slate-950">NC</span>
+              <span className="hidden sm:inline">Nomeniavo Cathy</span>
+            </a>
             <div className="flex flex-wrap items-center gap-2">
               <div className="flex rounded-lg border border-slate-200 bg-slate-100 p-1 dark:border-white/10 dark:bg-white/10" aria-label="Choisir le profil">
                 {themeEntries.map(([key, item]) => (
@@ -48,6 +52,9 @@ export function CVPage() {
                   </button>
                 ))}
               </div>
+              <a href={`mailto:${cvData.profile.email}`} className="primary-button hidden sm:inline-flex">
+                Contact <ArrowUpRight className="h-4 w-4" />
+              </a>
               <button
                 type="button"
                 onClick={() => setMode((value) => (value === "light" ? "dark" : "light"))}
@@ -60,14 +67,14 @@ export function CVPage() {
           </div>
         </div>
 
-        <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:py-12">
-          <div className="cv-shell relative overflow-hidden bg-white p-5 ring-1 ring-slate-200/80 sm:p-8 lg:p-10 dark:bg-slate-900 dark:ring-white/10">
-            <div className={cn("pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r", activeTheme.accent)} />
+        <main id="top" className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:py-10">
+          <div className="cv-shell relative overflow-hidden rounded-[2rem] bg-white p-5 shadow-2xl shadow-slate-900/[0.06] ring-1 ring-slate-200/80 sm:p-8 lg:p-12 dark:bg-slate-900 dark:ring-white/10">
+            <div className={cn("pointer-events-none absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r", activeTheme.accent)} />
             <HeroSection profile={cvData.profile} />
-            <SummarySection profile={cvData.profile} />
+            <div id="about" className="scroll-mt-24"><SummarySection profile={cvData.profile} /></div>
             <StatsSection stats={cvData.stats} />
 
-            <section className="cv-section" aria-labelledby="experience-title">
+            <section id="experience" className="cv-section scroll-mt-24" aria-labelledby="experience-title">
               <p className="section-kicker">Parcours</p>
               <h2 id="experience-title" className="section-title">Expériences</h2>
               <div className="space-y-4">
@@ -79,11 +86,11 @@ export function CVPage() {
               <p className="section-kicker">Réalisations</p>
               <h2 id="projects-title" className="section-title">Projets sélectionnés</h2>
               <div className="grid gap-4 md:grid-cols-2">
-                {cvData.projects.map((project) => <ProjectCard key={project.title} project={project} />)}
+                {cvData.projects.map((project, index) => <ProjectCard key={project.title} project={project} index={index} />)}
               </div>
             </section>
 
-            <section className="cv-section" aria-labelledby="skills-title">
+            <section id="skills" className="cv-section scroll-mt-24" aria-labelledby="skills-title">
               <p className="section-kicker">Expertise</p>
               <h2 id="skills-title" className="section-title">Compétences</h2>
               <div className="grid gap-4 md:grid-cols-2">
