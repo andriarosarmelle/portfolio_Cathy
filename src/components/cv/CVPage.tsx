@@ -85,8 +85,10 @@ export function CVPage() {
             <section id="projects" className="cv-section" aria-labelledby="projects-title">
               <p className="section-kicker">Réalisations</p>
               <h2 id="projects-title" className="section-title">Projets sélectionnés</h2>
-              <div className="grid gap-4 md:grid-cols-2">
-                {cvData.projects.map((project, index) => <ProjectCard key={project.title} project={project} index={index} />)}
+              <div className="grid items-start gap-5 md:grid-cols-2">
+                {[...cvData.projects]
+                  .sort((a, b) => Number(Boolean(b.images?.length)) - Number(Boolean(a.images?.length)))
+                  .map((project, index) => <ProjectCard key={project.title} project={project} index={index} />)}
               </div>
             </section>
 
