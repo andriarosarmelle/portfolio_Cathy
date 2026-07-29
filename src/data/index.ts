@@ -82,7 +82,7 @@ export const experiences: Experience[] = [
   },
   {
     role: "Réalisation d'une application web de sondage RPS",
-    company: "Laroche 360",
+    company: "Toky Raobelinoro",
     location: "Montréal, Canada (remote)",
     period: "Janvier 2026 — Avril 2026",
     description:
@@ -161,7 +161,7 @@ export const projects: Project[] = [
   },
   {
     title: "Application SaaS — Sondages RPS",
-    context: "Laroche 360 — Santé au travail",
+    context: "Toky Raobelinoro — Santé au travail",
     description:
       "Plateforme B2B de gestion des risques psychosociaux en entreprise: import des collaborateurs, campagnes de sondage, suivi de participation, analyse intelligente et rapports.",
     results: "Solution déployée sur VPS, questionnaires gérés, rapports automatisés et tableaux de bord d'analyse.",

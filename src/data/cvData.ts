@@ -68,7 +68,7 @@ export const cvData: CVData = {
     },
     {
       role: "Développeuse Full Stack - Plateforme web sondage RPS",
-      organization: "Laroche 360, Canada",
+      organization: "Toky Raobelinoro",
       period: "Janvier 2026 - Avril 2026",
       context:
         "Plateforme SaaS B2B pour créer, diffuser et analyser des sondages liés aux risques psychosociaux en entreprise.",
@@ -113,6 +113,16 @@ export const cvData: CVData = {
         "Solution de sondage avec import de collaborateurs, liens uniques, relances, dashboards et rapports exportables.",
       impact: "Pilotage plus fiable des campagnes et restitution professionnelle des résultats.",
       technologies: ["Next.js", "NestJS", "PostgreSQL", "n8n"],
+      images: [
+        {
+          src: "/images/projects/pulse-rps-dashboard.png",
+          alt: "Tableau de bord fictif Pulse RPS présentant une liste de sondages",
+        },
+        {
+          src: "/images/projects/pulse-rps-login.png",
+          alt: "Écran de connexion fictif de la plateforme Pulse RPS",
+        },
+      ],
     },
     {
       title: "Site vitrine automatisé avec n8n",

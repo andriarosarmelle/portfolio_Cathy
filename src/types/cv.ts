@@ -44,6 +44,10 @@ export interface CVProject {
   description: string;
   impact: string;
   technologies: string[];
+  images?: Array<{
+    src: string;
+    alt: string;
+  }>;
 }
 
 export interface CVSkillCategory {
