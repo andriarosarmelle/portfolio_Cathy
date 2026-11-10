@@ -29,21 +29,29 @@ export interface CVStat {
 }
 
 export interface CVExperience {
+  id: string;
   role: string;
   organization: string;
   period: string;
+  /** Date de début ISO (AAAA-MM) utilisée pour le classement chronologique. */
+  startDate: string;
   context: string;
   missions: string[];
   impact: string;
   technologies: string[];
+  /** Profil pour lequel cette expérience est la plus pertinente (tri de la page). */
+  focus?: ThemeProfile;
 }
 
 export interface CVProject {
+  demoUrl?: string;
   title: string;
   category: string;
+  role: string;
   description: string;
   impact: string;
   technologies: string[];
+  focus?: ThemeProfile;
   images?: Array<{
     src: string;
     alt: string;
@@ -53,6 +61,7 @@ export interface CVProject {
 export interface CVSkillCategory {
   title: string;
   items: string[];
+  focus?: ThemeProfile;
 }
 
 export interface CVTimelineItem {

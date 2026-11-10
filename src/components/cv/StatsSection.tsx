@@ -1,4 +1,5 @@
 import type { CVStat } from "@/types/cv";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { cn } from "@/utils/cn";
 
 interface StatsSectionProps {
@@ -6,8 +7,9 @@ interface StatsSectionProps {
 }
 
 export function StatsSection({ stats }: StatsSectionProps) {
+  const { t } = useLanguage();
   return (
-    <section className="cv-section" aria-label="Chiffres clés">
+    <section className="stats-section cv-section" aria-label={t.stats.aria}>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (
           <article key={stat.label} className="premium-card p-5">

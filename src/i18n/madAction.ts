@@ -1,0 +1,28 @@
+export const madAction = {
+  fr: {
+    kicker: "Démo interactive", title: "Mad’action · Le parrainage, simplement.",
+    intro: "Une démonstration fictive du suivi des étudiants parrainés, inspirée de l’interface Mad’action. Explorez la connexion et le suivi des dossiers.",
+    fictional: "Démo fictive · Données d’exemple", login: "Connexion", signup: "S’inscrire", back: "Retour à la connexion",
+    email: "Courriel de démonstration", password: "Mot de passe fictif", show: "Afficher le mot de passe fictif", hide: "Masquer le mot de passe fictif",
+    forgot: "Mot de passe oublié ?", enter: "Se connecter", hint: "Compte fictif prérempli. Aucun compte réel ni envoi de courriel.",
+    signupNotice: "Dans cette démo, l’inscription est simulée. Utilisez le compte fictif prérempli pour explorer le suivi.",
+    resetNotice: "Réinitialisation simulée : aucun courriel envoyé. Le compte fictif reste prêt à utiliser.",
+    dashboard: "Suivi des parrainages", welcome: "Chaque parcours compte.", logout: "Se déconnecter", total: "Étudiants", pending: "À valider", approved: "Dossiers validés",
+    search: "Rechercher un étudiant fictif", all: "Tous les dossiers", awaiting: "À valider", valid: "Validé", approve: "Valider le dossier", details: "Voir le dossier", close: "Fermer le dossier", empty: "Aucun dossier ne correspond à votre recherche.",
+    year: "Année d’études", program: "Formation", progress: "Suivi du semestre", progressValue: "Pièces fictives reçues · bilan à vérifier", validated: "Dossier fictif validé. Le tableau de suivi est mis à jour.", reset: "Réinitialiser la démo", resetDone: "Démo réinitialisée avec les dossiers fictifs.",
+    courses: ["Informatique", "Gestion", "Sciences"],
+  },
+  en: {
+    kicker: "Interactive demo", title: "Mad’action · Sponsorship made simple.",
+    intro: "A fictional demonstration of sponsored student tracking, inspired by the Mad’action interface. Explore sign-in and student records.",
+    fictional: "Fictional demo · Sample data", login: "Sign in", signup: "Sign up", back: "Back to sign-in",
+    email: "Demo email", password: "Fictional password", show: "Show fictional password", hide: "Hide fictional password",
+    forgot: "Forgot password?", enter: "Sign in", hint: "Prefilled fictional account. No real account or email sending.",
+    signupNotice: "Registration is simulated in this demo. Use the prefilled fictional account to explore student tracking.",
+    resetNotice: "Simulated reset: no email was sent. The fictional account is ready to use.",
+    dashboard: "Sponsorship tracking", welcome: "Every journey matters.", logout: "Sign out", total: "Students", pending: "To review", approved: "Approved records",
+    search: "Search fictional students", all: "All records", awaiting: "To review", valid: "Approved", approve: "Approve record", details: "View record", close: "Close record", empty: "No records match your search.",
+    year: "Year of study", program: "Programme", progress: "Semester follow-up", progressValue: "Sample documents received · review pending", validated: "Fictional record approved. The tracking dashboard has been updated.", reset: "Reset demo", resetDone: "Demo reset with fictional records.",
+    courses: ["Computer Science", "Management", "Sciences"],
+  },
+};

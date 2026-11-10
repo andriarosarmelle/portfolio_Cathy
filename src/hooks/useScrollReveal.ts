@@ -7,6 +7,15 @@ export function useScrollReveal() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reducedMotion.matches || !("IntersectionObserver" in window)) {
+      setRevealed(true);
+      return;
+    }
+    const onMotionChange = () => {
+      if (reducedMotion.matches) setRevealed(true);
+    };
+    reducedMotion.addEventListener("change", onMotionChange);
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -14,10 +23,13 @@ export function useScrollReveal() {
           obs.unobserve(el);
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0, rootMargin: "0px 0px -24px 0px" }
     );
     obs.observe(el);
-    return () => obs.disconnect();
+    return () => {
+      obs.disconnect();
+      reducedMotion.removeEventListener("change", onMotionChange);
+    };
   }, []);
 
   return { ref, revealed };
