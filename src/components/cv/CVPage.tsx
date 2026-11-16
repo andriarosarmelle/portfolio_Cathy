@@ -13,10 +13,14 @@ import { SectionNavigation } from "@/components/cv/SectionNavigation";
 import { StatsSection } from "@/components/cv/StatsSection";
 import { SummarySection } from "@/components/cv/SummarySection";
 import { TimelineSection } from "@/components/cv/TimelineSection";
+import { TechMarquee } from "@/components/cv/TechMarquee";
+import { CtaSection } from "@/components/cv/CtaSection";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { BackToTopButton } from "@/components/ui/BackToTopButton";
 import { SkipLink } from "@/components/ui/SkipLink";
 import { useColorMode } from "@/hooks/useColorMode";
+import { useSpotlight } from "@/hooks/useSpotlight";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { CVProject, ThemeProfile } from "@/types/cv";
 import { cn } from "@/utils/cn";
@@ -46,6 +50,7 @@ function byFocus<T extends { focus?: ThemeProfile }>(theme: ThemeProfile) {
 export function CVPage() {
   const { lang, setLang, t, data: cvData } = useLanguage();
   const { mode, toggleMode } = useColorMode();
+  useSpotlight();
   const [theme, setTheme] = useState<ThemeProfile>("developer");
   const activeTheme = profileThemes[theme];
   const themeEntries = Object.entries(profileThemes) as Array<[ThemeProfile, typeof activeTheme]>;
@@ -68,7 +73,7 @@ export function CVPage() {
       <header className="site-header no-print sticky top-0 z-40 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
           <a href="#top" className="flex items-center gap-3 font-semibold tracking-tight">
-            <span className="grid h-10 w-10 place-items-center rounded-xl bg-slate-950 text-xs font-bold text-white dark:bg-white dark:text-slate-950">NC</span>
+            <span className="brand-mark grid h-10 w-10 place-items-center rounded-xl bg-slate-950 text-xs font-bold text-white dark:bg-white dark:text-slate-950">NC</span>
             <span className="hidden sm:inline">Nomeniavo Cathy</span>
           </a>
 
@@ -121,11 +126,13 @@ export function CVPage() {
           </div>
         </div>
         <SectionNavigation />
+        <ScrollProgress />
       </header>
 
       <main id="main-content" className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:py-10">
         <div className="cv-shell relative">
           <HeroSection profile={cvData.profile} theme={theme} />
+          <TechMarquee />
 
           <ScrollReveal id="about" className="scroll-mt-24">
             <SummarySection profile={cvData.profile} />
@@ -208,6 +215,10 @@ export function CVPage() {
 
           <ScrollReveal id="contact" className="scroll-mt-24">
             <ContactSection profile={cvData.profile} languages={cvData.languages} />
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <CtaSection email={cvData.profile.email} />
           </ScrollReveal>
         </div>
       </main>

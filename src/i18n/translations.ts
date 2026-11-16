@@ -64,6 +64,13 @@ export const fr = {
     languagesKicker: "Langues",
     languagesTitle: "Communication",
   },
+  cta: {
+    kicker: "Travaillons ensemble",
+    title: "Un projet, une idée, un besoin à automatiser ?",
+    text: "Je suis disponible pour des missions de développement Web & Mobile, d’automatisation et de systèmes d’information de santé.",
+    button: "Écrivez-moi",
+  },
+  marquee: { aria: "Technologies utilisées" },
   footer: {
     builtWith: "Conçu et développé avec React, TypeScript et Tailwind CSS.",
     backToTop: "Haut de page",
@@ -165,6 +172,13 @@ export const en: Translations = {
     languagesKicker: "Languages",
     languagesTitle: "Communication",
   },
+  cta: {
+    kicker: "Let’s work together",
+    title: "A project, an idea, a process to automate?",
+    text: "I’m available for Web & Mobile development, automation and health information systems projects.",
+    button: "Get in touch",
+  },
+  marquee: { aria: "Technologies I use" },
   footer: {
     builtWith: "Designed and built with React, TypeScript and Tailwind CSS.",
     backToTop: "Back to top",

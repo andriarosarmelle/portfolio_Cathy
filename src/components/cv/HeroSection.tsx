@@ -15,9 +15,10 @@ export function HeroSection({ profile, theme }: HeroSectionProps) {
 
   return (
     <section className="hero-section cv-section relative grid items-center gap-12 lg:grid-cols-[1.35fr_0.65fr]" aria-labelledby="hero-title">
+      <div className="hero-backdrop" aria-hidden="true" />
       <div className="hero-copy space-y-6">
         <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-800 dark:border-emerald-400/20 dark:bg-emerald-400/10 dark:text-emerald-200">
-          <span className="h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" /> {t.hero.available}
+          <span className="status-dot h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" /> {t.hero.available}
         </div>
         <div className="space-y-4">
           <p className="hero-name">{profile.name}</p>
