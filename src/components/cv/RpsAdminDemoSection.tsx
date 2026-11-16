@@ -149,7 +149,6 @@ export function RpsAdminDemoSection() {
         <div className="grid md:grid-cols-[230px_1fr]">
           <aside className="flex flex-col bg-[#1f2428] p-4 text-white">
             <p className="font-serif text-xl font-bold">{t.appName}<span className="text-orange-400">°</span></p>
-            <p className="font-serif text-[11px] text-slate-300">{t.appTagline}</p>
             <span className="mt-3 w-fit rounded-md bg-orange-400 px-2 py-1 text-[10px] font-bold tracking-wide text-slate-950">{t.env}</span>
 
             <nav aria-label={t.title} className="mt-4">
